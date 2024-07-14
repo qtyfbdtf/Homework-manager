@@ -36,7 +36,10 @@ export default function Login({
     const password = formData.get("password") as string;
     const supabase = createClient();
 
-    const { error } = await supabase.auth.signUp({
+    console.log("Signing up with email:", email);
+    console.log("Origin:", origin);
+
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -45,9 +48,11 @@ export default function Login({
     });
 
     if (error) {
+      console.error("Sign-up error:", error);
       return redirect("/login?message=Could not authenticate user");
     }
 
+    console.log("Sign-up data:", data);
     return redirect("/login?message=Check email to continue sign in process");
   };
 
@@ -55,7 +60,7 @@ export default function Login({
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
       <Link
         href="/"
-        className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm mt-16" // Added mt-16
+        className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm mt-16"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
