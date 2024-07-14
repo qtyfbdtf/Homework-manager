@@ -2,7 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import Footer from "@/components/Layout/Footer";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
@@ -24,6 +24,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen flex flex-col items-center">
           {children}
+          <SpeedInsights />
         </main>
         <Footer />
       </body>
