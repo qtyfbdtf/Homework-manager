@@ -13,6 +13,18 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      overflowWrap: {
+        "break-word": "break-word",
+      },
+      wordBreak: {
+        "break-word": "break-word",
+      },
+      overflow: {
+        hidden: "hidden",
+      },
+      textOverflow: {
+        ellipsis: "ellipsis",
+      },
     },
   },
   plugins: [],
